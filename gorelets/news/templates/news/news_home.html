@@ -1,0 +1,30 @@
+{%extends 'news/layout.html' %}
+{% block title %} НОВОСТИ О ГОРЕЛЬЦЕ{% endblock%}
+{% block content %}
+<h1>НОВОСТИ О ГОРЕЛЬЦЕ</h1>
+<div class="feature" style="margin-top:100px;">
+
+    {%  if news  %}
+    {% block menu %}
+    {%for razdel in menu%}
+    <a href="{{razdel.url}}" style="text-decoration: none; color: black; display: block; background: white; border-radius: 10px; margin: 10px; padding: 15px; text-align: center;">
+        {{razdel.name}}</a>
+    <img src="{{razdel.image.url}}" alt="el.title" width="200px"><br>
+    {%endfor%}
+    {% endblock %}
+    {% for el in news %}
+    <div>
+
+        <h3>{{el.title}}</h3>
+        <p>{{el.anons}}</p>
+        <img src="{{ el.image.url }}" alt="{{el.title}}" width="200px"><br>
+        <a style="font-size:30px;margin-top:5px;" href=' {% url "news_detail" el.id %}' >Читать подробнее</a>
+
+    </div>
+    {% endfor %}
+    {%  else  %}
+    <p>У вас нет записей</p>
+    {%  endif  %}
+    {#  Комментарий  #}
+</div>
+{% endblock%}

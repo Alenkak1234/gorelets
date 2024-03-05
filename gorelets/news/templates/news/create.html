@@ -1,0 +1,20 @@
+{%extends 'news/layout.html' %}
+{% block title %}Новая запись{% endblock%}
+{% block content %}
+<div>
+    <h1>Создать новую запись</h1>
+    <form enctype="multipart/form-data" style="margin-left:32%; width:500px; margin-top:50px;" method="post">
+        {% csrf_token %}
+        {{form.title}}<br>
+        {{form.anons}}<br>
+        {{form.full_text}}<br>
+        {{form.image}}<br>
+        {{form.date}}<br>
+        {{form.author}}<br>
+        {{form.category}}<br>
+        {{form.like}}<br>
+        <span>{{ error }}</span>
+        <button style= 'height:50px;font-size:20px;' type="submit">Создать форму</button>
+    </form>
+</div>
+{% endblock%}

@@ -1,0 +1,20 @@
+{%extends 'news/layout.html' %}
+{% block title %}{{article.title}}{% endblock%}
+{% block content %}
+<div>
+    <h1>{{article.title}}</h1>
+    <p>{{article.anons}}</p>
+    <p>{{article.date}}</p>
+    <p>{{article.full_text}}</p>
+    {%if article.image.url%}
+        <img src="{{ article.image.url }}" alt="{{article.title}}" width="200px"><br>
+        {%else%}
+        <p>{{article.title}}</p>
+        {% endif %}
+    <a href="{% url 'author_page' author.name%}">{{article.author}}</a>
+    <div style="margin-top:50px;margin-left:30%;">
+        <a style="font-size:30px;color:#486B00" href="{% url 'news_update' article.id %}" >Редактировать</a>
+        <a style="font-size:70px;color:#486B00" href="{% url 'news_delete' article.id %}" >Удалить</a>
+    </div>
+</div>
+{% endblock%}

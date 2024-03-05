@@ -1,0 +1,13 @@
+{%extends 'news/layout.html' %}
+{% block title %}Удаление статьи{% endblock%}
+{% block content %}
+<div>
+    <h1>Удаление статьи</h1>
+    <h4>Вы точно хотите удалить статью?</h4>
+    <a href="{% url 'news_home' %}">Вернуться ко всем статьям</a>
+    <form style="margin-left:3%; width:1000px; margin-top:50px;" method="post">
+        {% csrf_token %}
+        <button type="submit">Удалить форму</button>
+    </form>
+</div>
+{% endblock%}

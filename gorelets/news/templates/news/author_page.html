@@ -1,0 +1,11 @@
+{%extends 'news/layout.html' %}
+{% block title %}{{author.name}}{% endblock%}
+{% block content %}
+<div>
+    <h1>{{author.name}}</h1
+    <p>{{article.description}}</p>
+    <div style="margin-top:50px;margin-left:30%;">
+        <a style="font-size:30px;color:#486B00" href="{% url 'news_update' article.id %}" >Редактировать</a>
+    </div>
+</div>
+{% endblock%}
